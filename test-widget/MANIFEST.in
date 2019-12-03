@@ -1,0 +1,7 @@
+recursive-include shaofengwidget/shaofeng_widget/static *.*
+include shaofengwidget/shaofeng_widget/shaofeng_widget.json
+include shaofengwidget/shaofeng_serverextension/shaofeng_serverextension.json
+
+# Misc
+include requirements.txt
+include README.md

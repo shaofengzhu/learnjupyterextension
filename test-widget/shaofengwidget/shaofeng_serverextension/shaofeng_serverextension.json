@@ -1,0 +1,7 @@
+{
+    "NotebookApp": {
+        "nbserver_extensions": {
+            "shaofengwidget.shaofeng_serverextension.server_extension": true
+        }
+    }
+}

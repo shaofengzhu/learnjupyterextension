@@ -1,0 +1,2 @@
+requests
+ipywidgets>=7.1.2

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta http-equiv="Expires" content="0" />
+        <title>Jupyter Host</title>
+        <script type="text/javascript">
+        function log(value){
+            var div = document.createElement("div");
+            div.appendChild(document.createTextNode(value));
+            document.getElementById("DivLog").appendChild(div);
+        }
+
+        window.addEventListener("message", function(ev) {
+            if (typeof(ev.data) !== "string") {
+                return;
+            }
+            msg = JSON.parse(ev.data);
+            if (!msg) {
+                return;
+            }
+
+            if (msg.type === "shaofeng_input_request") {
+                log("Received:" + msg.value);
+                var response = {
+                    type: "shaofeng_input_response",
+                    value: msg.value + " Response"
+                }
+
+                ev.source.postMessage(JSON.stringify(response), "*");
+            }
+        });
+        </script>
+    </head>
+    <body>
+        Hello
+        <div>
+            <iframe id="FrmJupyter" src="http://localhost:8888/notebooks/jupyter-embed.ipynb" height="500" width="100%"></iframe>
+        </div>
+        <div id="DivLog">
+        </div>
+    </body>
+</html>
